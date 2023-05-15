@@ -1,0 +1,43 @@
+.App {
+  max-width: 1200px;
+  padding: 0px 10px;
+  text-align: left;
+}
+
+.form {
+  text-align: center;
+}
+
+.post {
+  padding: 10px 0;
+  border: 1px solid rgb(163 37 101 / 57%);
+  margin: 10px;
+}
+
+.post__title {
+  font-weight: 700;
+}
+
+.favorites__red {
+  background-color: red;
+}
+
+.favorites__grey {
+  background-color: gray;
+}
+
+.posts__list {
+  padding: 0;
+}
+
+.post__item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.favorites__grey,
+.favorites__red {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
