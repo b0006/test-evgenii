@@ -8,9 +8,21 @@ function App() {
   const [filter, setFilter] = useState<Post[]>([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/posts?title_like=${title}`)
-      .then((response) => response.json())
-      .then((data) => setFilter(data));
+    if (!title) {
+      return;
+    }
+
+    const fetchSearchPosts = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/posts?title_like=${title}`);
+        const data = await response.json();
+        setFilter(data)
+      } catch (err) {
+        console.error('Ошибка');
+      }
+    };
+
+    fetchSearchPosts();
   }, [title]);
 
   return (

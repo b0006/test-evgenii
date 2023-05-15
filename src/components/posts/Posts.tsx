@@ -25,6 +25,10 @@ const Posts: FC<PostProps> = ({ title, filter, setFilter }) => {
   });
 
   useEffect(() => {
+    if (title) {
+      return;
+    }
+
     const fetchPostList = async () => {
       try {
         const response = await fetch("http://localhost:3000/posts");
@@ -37,7 +41,7 @@ const Posts: FC<PostProps> = ({ title, filter, setFilter }) => {
     }
 
     fetchPostList();
-  }, []);
+  }, [title]);
 
   if(state.error) {
     return <p>Error</p>;
